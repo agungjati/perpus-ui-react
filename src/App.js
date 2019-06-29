@@ -38,7 +38,7 @@ export default function App() {
   const menus = [{ text: 'Dashboard', link: "/", icon: "dashboard" },
   { text: 'Peminjaman', link: "/peminjaman", icon : "add" },
   { text: 'Buku', link: "/buku" , icon : "book" },
-  { text: 'Anggota', link: "/anggota/daftar" , icon : "users" }]
+  { text: 'Anggota', link: "/anggota/daftar" , icon : "account_circle" }]
 
   function handleDrawerOpen() {
     setOpen(true);

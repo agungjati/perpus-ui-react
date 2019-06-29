@@ -21,6 +21,12 @@ const useStyles = makeStyles(theme => ({
     },
     list: {
         "margin-top": "15px"
+    },
+    buttonAdd: {
+        position: "fixed",
+        bottom: "10%",
+        right: "3%",
+        "z-index": 9999
     }
 }));
 
@@ -35,10 +41,10 @@ export default function Anggota() {
                     Daftar Anggota
                 </Typography>
                 <Link to='/anggota/tambah'>
-                <Fab variant="extended" color="primary" aria-label="Add" >
-                    <AddIcon /> Tambah anggota
+                    <Fab variant="round" className={classes.buttonAdd} color="primary" aria-label="Add" >
+                        <AddIcon /> 
           </Fab>
-          </Link>
+                </Link>
             </div>
             <Paper className={classes.konten}>
                 <Card className={classes.list}>

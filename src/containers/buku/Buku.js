@@ -60,7 +60,13 @@ const useMyStyles = makeStyles(theme => ({
     "justify-content": "space-between",
     "align-items" : "center",
     "marginBottom": "20px"
-  }
+  },
+  buttonAdd: {
+    position: "fixed",
+    bottom: "10%",
+    right: "3%",
+    "z-index": 9999
+}
 
 }));
 
@@ -75,8 +81,8 @@ export default function Buku() {
         <Typography variant="h6" noWrap>
             Daftar Buku
           </Typography>
-          <Fab variant="extended" color="primary" aria-label="Add" className={classes.fab}>
-            <AddIcon  /> Tambah buku
+          <Fab variant="round"  color="primary" aria-label="Add" className={classes.fab +" "+ myClases.buttonAdd}>
+            <AddIcon  />
           </Fab>
       </div>
       <Card className={classes.card}>
