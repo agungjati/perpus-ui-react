@@ -6,6 +6,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -16,6 +17,9 @@ const useStyles = makeStyles(theme => ({
   table: {
     minWidth: 650,
   },
+  header : {
+    "margin-bottom": "10px"
+  }
 }));
 
 function createData(kode, judul, penulis, peminjam, bataswaktu, denda) {
@@ -36,7 +40,11 @@ export default function Peminjaman() {
   const classes = useStyles();
 
   return (
-    <Paper >
+    <div >
+      <Typography  className={classes.header} variant="h6" noWrap>
+            Peminjaman Buku
+          </Typography>
+          <Paper>
       <Table className={classes.table}>
         <TableHead>
           <TableRow>
@@ -63,6 +71,7 @@ export default function Peminjaman() {
           ))}
         </TableBody>
       </Table>
-    </Paper>
+      </Paper>
+    </div>
   );
 }

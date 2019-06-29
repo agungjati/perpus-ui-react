@@ -20,6 +20,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
+import DashboardIcon from '@material-ui/icons/Dashboard'
 import useStyles from './App.style';
 import MediaCard from './containers/buku/Buku'
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
@@ -27,15 +28,17 @@ import Peminjaman from './containers/peminjaman/peminjaman'
 import Dashboard from './containers/dashboard/dashboard'
 import Icon from '@material-ui/core/Icon';
 import InputBase from '@material-ui/core/InputBase';
+import Anggota from './containers/anggota/Anggota'
+import AddMember from './containers/anggota/add/AddMember'
 
 export default function App() {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(true);
-  const menus = [{ text: 'Dashboard', link: "/" },
-  { text: 'Peminjaman', link: "/peminjaman" },
-  { text: 'Buku', link: "/buku" },
-  { text: 'Anggota', link: "/anggota" }]
+  const menus = [{ text: 'Dashboard', link: "/", icon: "dashboard" },
+  { text: 'Peminjaman', link: "/peminjaman", icon : "add" },
+  { text: 'Buku', link: "/buku" , icon : "book" },
+  { text: 'Anggota', link: "/anggota/daftar" , icon : "users" }]
 
   function handleDrawerOpen() {
     setOpen(true);
@@ -113,9 +116,11 @@ export default function App() {
           </div>
           <Divider />
           <List>
-            {menus.map(({ text, link }, index) => (
+            {menus.map(({ text, link, icon }, index) => (
               <ListItem button key={index}>
-                <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+                <ListItemIcon>
+                <Icon>{ icon }</Icon>
+                </ListItemIcon>
                 <Link to={link} className={classes.menu}>
                   <ListItemText primary={text} />
                 </Link>
@@ -132,9 +137,8 @@ export default function App() {
           <Route path="/" exact component={Dashboard} />
           <Route path="/buku" component={MediaCard} />
           <Route path="/peminjaman" component={Peminjaman} />
-
-
-
+          <Route path="/anggota/daftar" component={Anggota} />
+          <Route path="/anggota/tambah" component={AddMember} />
         </main>
       </div>
     </Router>

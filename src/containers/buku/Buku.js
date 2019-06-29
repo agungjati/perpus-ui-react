@@ -10,7 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import img from '../../images/reactjs.png';
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
-import CardHeader from '@material-ui/core/CardHeader';
+import CardHeader from '@material-ui/core/Paper';
 
 
 const useStyles = makeStyles(theme => ({
@@ -64,7 +64,7 @@ const useMyStyles = makeStyles(theme => ({
 
 }));
 
-export default function MediaCard() {
+export default function Buku() {
 
   const classes = useStyles(),
     myClases = useMyStyles();
