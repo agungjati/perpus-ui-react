@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/perpus-ui-react/static/css/main.34de6062.chunk.css",
+    "main.js": "/perpus-ui-react/static/js/main.b0dcfc8e.chunk.js",
+    "main.js.map": "/perpus-ui-react/static/js/main.b0dcfc8e.chunk.js.map",
+    "runtime~main.js": "/perpus-ui-react/static/js/runtime~main.78846016.js",
+    "runtime~main.js.map": "/perpus-ui-react/static/js/runtime~main.78846016.js.map",
+    "static/js/2.3d4ff719.chunk.js": "/perpus-ui-react/static/js/2.3d4ff719.chunk.js",
+    "static/js/2.3d4ff719.chunk.js.map": "/perpus-ui-react/static/js/2.3d4ff719.chunk.js.map",
+    "index.html": "/perpus-ui-react/index.html",
+    "precache-manifest.02c26787d9e39ebe2ecf3fd51e6ebdc5.js": "/perpus-ui-react/precache-manifest.02c26787d9e39ebe2ecf3fd51e6ebdc5.js",
+    "service-worker.js": "/perpus-ui-react/service-worker.js",
+    "static/css/main.34de6062.chunk.css.map": "/perpus-ui-react/static/css/main.34de6062.chunk.css.map"
+  }
+}
