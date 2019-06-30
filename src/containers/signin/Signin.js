@@ -9,17 +9,21 @@ import Icon from '@material-ui/core/Icon'
 
 const useStyles = makeStyles(theme => ({
     konten: {
-        width: "350px",
+        width: "350px"
     },
     flexDirectColumn: {
-        display: "flex",
+        display: "flex",    
         "flex-direction": "column"
     },
     flexGrow: {
         flex: 1,
         "margin": "auto 10px"
     },
-    root: { "height": "100vh" },
+    root: { 
+        "height": "100vh", 
+        background: "url('/img/bg.jpg')",
+        "background-size": "cover"
+    },
     flexCenter: {
         "display": "flex",
         "align-items": "center",
@@ -39,7 +43,7 @@ const useStyles = makeStyles(theme => ({
         background: "#3f51b5",
         color: "white",
         padding: "20px 0",
-        "border-radius": "5px 5px 0 0"
+        "border-radius": "2px 2px 0 0"
     }
 }));
 
