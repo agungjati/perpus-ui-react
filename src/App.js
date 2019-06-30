@@ -36,7 +36,7 @@ export default function App() {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(true);
-  const [isAuth, setIsAuth] = React.useState(true);
+  const [isAuth, setIsAuth] = React.useState(false);
   const menus = [{ text: 'Dashboard', link: "/", icon: "dashboard" },
   { text: 'Peminjaman', link: "/peminjaman", icon : "attach_money" },
   { text: 'Buku', link: "/buku" , icon : "book" },

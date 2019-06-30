@@ -3,18 +3,13 @@ import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
 import Paper from '@material-ui/core/Paper'
 import { makeStyles } from '@material-ui/core/styles'
-import clsx from 'clsx';
 import TextField from '@material-ui/core/TextField'
-import CardHeader from '@material-ui/core/CardHeader'
-import CardContent from '@material-ui/core/CardContent'
-import Fab from '@material-ui/core/Fab';
-
-import { Link } from 'react-router-dom'
+import InputAdornment from '@material-ui/core/InputAdornment'
+import Icon from '@material-ui/core/Icon'
 
 const useStyles = makeStyles(theme => ({
     konten: {
         width: "350px",
-        padding: "15px"
     },
     flexDirectColumn: {
         display: "flex",
@@ -24,54 +19,78 @@ const useStyles = makeStyles(theme => ({
         flex: 1,
         "margin": "auto 10px"
     },
+    root: { "height": "100vh" },
     flexCenter: {
         "display": "flex",
         "align-items": "center",
         "justify-content": "center",
-        "height": "100vh"
     },
     list: {
         "margin-top": "25px"
     },
-    alignCenter : {
-        textAlign:"center"
+    alignCenter: {
+        textAlign: "center",
+    }, 
+    form : {
+        padding: "10px 15px",
+        paddingBottom: "35px",
+    },
+    header : {
+        background: "#3f51b5",
+        color: "white",
+        padding: "20px 0",
+        "border-radius": "5px 5px 0 0"
     }
 }));
 
 export default function Signin(props) {
 
     const classes = useStyles();
-    
-    return (
-        <div className={classes.flexCenter}>
+
+    return (    
+        <div className={classes.flexCenter +" "+ classes.root}>
             <Paper className={classes.konten}>
-            <Typography variant="h6" className={classes.alignCenter} noWrap>
-            Sign In
+                <Typography variant="h6" className={classes.flexCenter +" "+ classes.header} noWrap>
+                <Icon>exit_to_app</Icon>&nbsp;&nbsp;<span>Sign In</span>
             </Typography>
-                <form className={classes.flexDirectColumn}>
+                <form className={classes.flexDirectColumn +" "+ classes.form}>
                     <TextField
-                        className={classes.flexGrow +" "+ classes.list}
+                        className={classes.flexGrow + " " + classes.list}
                         label="Email"
-                        type="email"
                         variant="outlined"
                         margin="dense"
+                        type="email"
                         placeholder="Masukan alamat email"
+                        InputProps={{
+                            startAdornment: (
+                                <InputAdornment position="start">
+                                    <Icon>account_circle</Icon>
+                                </InputAdornment>
+                            ),
+                        }}
                         InputLabelProps={{ shrink: true }} />
                     <TextField
-                        className={classes.flexGrow +" "+ classes.list}
+                        className={classes.flexGrow + " " + classes.list}
                         label="Password"
                         variant="outlined"
                         margin="dense"
                         type="password"
                         placeholder="Masukan password"
+                        InputProps={{
+                            startAdornment: (
+                                <InputAdornment position="start">
+                                    <Icon>keyboard</Icon>
+                                </InputAdornment>
+                            ),
+                        }}
                         InputLabelProps={{ shrink: true }} />
                     <div className={classes.flexGrow + " " + classes.list} >
-                        <Button 
-                        variant="contained" 
-                        color="primary" 
-                        style={{ "float": "right" }}
-                        onClick={props.onLogIn}>Signin</Button>
-
+                        <Button
+                            variant="contained"
+                            color="primary"
+                            fullWidth
+                            style={{ "float": "right" }}
+                            onClick={props.onLogIn}>Sign in</Button>
                     </div>
                 </form>
             </Paper>
