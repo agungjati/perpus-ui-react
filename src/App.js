@@ -19,26 +19,28 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
+// import MailIcon from '@material-ui/icons/AttachMoney';
 import DashboardIcon from '@material-ui/icons/Dashboard'
 import useStyles from './App.style';
 import MediaCard from './containers/buku/Buku'
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Redirect } from "react-router-dom";
 import Peminjaman from './containers/peminjaman/peminjaman'
 import Dashboard from './containers/dashboard/dashboard'
 import Icon from '@material-ui/core/Icon';
 import InputBase from '@material-ui/core/InputBase';
 import Anggota from './containers/anggota/Anggota'
 import AddMember from './containers/anggota/add/AddMember'
+import Signin from './containers/signin/Signin'
 
 export default function App() {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(true);
+  const [isAuth, setIsAuth] = React.useState(true);
   const menus = [{ text: 'Dashboard', link: "/", icon: "dashboard" },
-  { text: 'Peminjaman', link: "/peminjaman", icon : "add" },
+  { text: 'Peminjaman', link: "/peminjaman", icon : "attach_money" },
   { text: 'Buku', link: "/buku" , icon : "book" },
-  { text: 'Anggota', link: "/anggota/daftar" , icon : "account_circle" }]
+  { text: 'Anggota', link: "/anggota/daftar" , icon : "account_box" }]
 
   function handleDrawerOpen() {
     setOpen(true);
@@ -48,8 +50,17 @@ export default function App() {
     setOpen(false);
   }
 
+  function onLogOut(){
+    setIsAuth(false)
+  }
+
+  function onLogIn(){
+    setIsAuth(true)
+  }
+
   return (
     <Router>
+      {isAuth == false ? <Signin onLogIn={onLogIn} />:
       <div className={classes.root}>
         <CssBaseline />
         <AppBar
@@ -89,7 +100,7 @@ export default function App() {
                 />
               </div>
               <Tooltip title="Log Out">
-                <IconButton color="inherit" className={classes.button} >
+                <IconButton color="inherit" className={classes.button} onClick={onLogOut} >
                   <ExitToAppIcon />
                 </IconButton>
               </Tooltip>
@@ -140,7 +151,7 @@ export default function App() {
           <Route path="/anggota/daftar" component={Anggota} />
           <Route path="/anggota/tambah" component={AddMember} />
         </main>
-      </div>
+      </div>}
     </Router>
   );
 }
